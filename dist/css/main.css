@@ -1,0 +1,203 @@
+/* Start Global Rules */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+:root {
+    --main-color: #2196f3;
+    --main-color-alt: #1787e0;
+    --main-transition: 0.3s;
+    --main-padding-y: 100px;
+    --section-background: #ececec;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Cairo', sans-serif;
+}
+a {
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Small */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+/* Medium */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+/* Large */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+/* End Global Rules */
+/* Start Header */
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 72px;
+    position: relative;
+}
+header .logo {
+    color: var(--main-color);
+    font-size: 26px;
+    font-weight: bold;
+}
+header .logo,
+nav .main-nav,
+nav .main-nav li,
+nav .main-nav li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+}
+nav .main-nav li a {
+    position: relative;
+    color: black;
+    padding: 0 30px;
+    overflow: hidden;
+    font-size: 18px;
+    transition: var(--main-transition);
+}
+nav .main-nav li a:hover {
+    background-color: #ececec44;
+    color: var(--main-color-alt);
+}
+nav .main-nav li a:before {
+    content: '';
+    position: absolute;
+    background-color: var(--main-color-alt);
+    height: 4px;
+    width: 100%;
+    top: 0;
+    left: -100%;
+    transition: inherit;
+}
+nav .main-nav li a:hover::before {
+    left: 0;
+}
+@media (max-width: 767px) {
+    header .container {
+        height: 40px;
+    }
+    header .main-nav,
+    header .logo {
+        width: 100%;
+    }
+    header .main-nav > li > a {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+nav .mega-menu {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    padding: 30px;
+    background-color: white;
+    border-bottom: 3px solid var(--main-color);
+    z-index: -1;
+    display: flex;
+    gap: 40px;
+    top: calc(100% + 50px);
+    opacity: 0;
+    transition: top var(--main-transition), opacity var(--main-transition);
+}
+header .main-nav > li:hover .mega-menu {
+    opacity: 1;
+    z-index: 100;
+    top: calc(100% + 1px);
+}
+nav .mega-menu {
+    display: flex;
+    flex-direction: row;
+}
+nav .mega-menu .links {
+    display: flex;
+    flex-direction: column;
+}
+@media (max-width: 767px) {
+    header .mega-menu {
+        flex-direction: column;
+        gap: 0;
+        padding: 5px;
+    }
+    header .main-nav > li:hover .mega-menu {
+        opacity: 1;
+        z-index: 100;
+        top: calc(100% + 50px);
+    }
+}
+header .mega-menu .image img {
+    max-width: 100%;
+}
+@media (max-width: 991px) {
+    header .mega-menu .image {
+        display: none;
+    }
+}
+header .mega-menu .links {
+    min-width: 250px;
+    flex: 1;
+}
+header .mega-menu .links li {
+    justify-content: flex-start;
+    position: relative;
+    width: 100%;
+}
+header .mega-menu .links li:not(:last-child) {
+    border-bottom: 1px solid #e9e6e6;
+}
+@media (max-width: 767px) {
+    header .mega-menu .links:first-of-type li:last-child {
+        border-bottom: 1px solid #e9e6e6;
+    }
+}
+
+header .mega-menu .links li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background-color: #fafafa;
+    z-index: -1;
+    transition: var(--main-transition);
+}
+header .mega-menu .links li:hover::before {
+    width: 100%;
+}
+header .mega-menu .links li a {
+    color: var(--main-color);
+    padding: 15px;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+}
+header .mega-menu .links li a i {
+    margin-right: 10px;
+}
+/* End Header */

@@ -1,0 +1,26 @@
+{
+  "name": "html-design",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "lint": "eslint . --ext .ts",
+    "prettier": "prettier --config .prettierrc \"./src/*.ts\" --write",
+    "formate": "npm run prettier && npm run lint",
+    "watch": "ts-watch ./src/main.ts --outDir ./dist/js --onSuccess './main.js'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.6.0",
+    "@typescript-eslint/parser": "^5.6.0",
+    "eslint": "^8.4.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.1",
+    "ts-watch": "^1.0.8",
+    "typescript": "^4.5.4"
+  }
+}
